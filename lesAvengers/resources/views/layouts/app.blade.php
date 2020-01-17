@@ -9,6 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+<<<<<<< HEAD
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -18,6 +19,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+=======
+  
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+>>>>>>> ccaf572a2654e0b65aea3cdb00a83d5b39c5ae97
 </head>
 <body>
     <div id="app">
@@ -76,5 +88,14 @@
             @yield('content')
         </main>
     </div>
+<<<<<<< HEAD
+=======
+  <!-- Scripts --> 
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+>>>>>>> ccaf572a2654e0b65aea3cdb00a83d5b39c5ae97
 </body>
 </html>
