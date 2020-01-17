@@ -97,5 +97,7 @@ class GamerController extends Controller
 
         // Redirection sur la page de films.
         return redirect('/gamers');
+    }
+    
 }
-}
+
