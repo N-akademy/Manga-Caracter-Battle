@@ -22,7 +22,7 @@
             @endif
         @endif
     </tr>
-    @foreach ($gamerworld as $gamer)
+    @foreach ($gamers as $gamer)
         <tr>
             <th class="id">{{ $gamer->id }}</th>
             <td>{{ $gamer->name }}</td>
