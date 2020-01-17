@@ -6,7 +6,7 @@
 
 
 
-<h1>Page de création de personnages</h1>
+<h1> ////Page de création de personnages</h1>
 
 @if ($errors->any())
     <div class="alert alert-danger">
