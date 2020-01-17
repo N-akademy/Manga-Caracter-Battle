@@ -85,9 +85,11 @@
                 </div>
 
                 <div class="links">
-                    <a >Accueil</a>
-                    <a>Game</a>
-                    <a>Profil</a>
+                    <a href="{{ route('showGamers') }}">Some Text</a>
+
+                    <a href="/">Accueil</a>
+                    <a href="/game">Game</a>
+                    <a href="/home">Profil</a>
                     
                 </div>
             </div>
