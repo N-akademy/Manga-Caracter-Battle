@@ -14,9 +14,14 @@ class CreateGamersTable extends Migration
     public function up()
     {
         Schema::create('gamers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name') ;
-            $table->timestamps();
+            
+                $table->bigIncrements('id');
+                $table->string('name');
+                $table->string('attack');
+                $table->integer('power');
+                $table->integer('lifePoint');
+                $table->timestamps();
+            
         });
     }
 
