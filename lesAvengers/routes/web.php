@@ -14,13 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user', 'UserController@index');
 
-Route::get('/gamers.show', 'GamerController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
 Route::get('/showGamers','GamerController@show')->name('showGamers');
+
+Route::get('/showUsers','GamerController@show')->name('showGamers');
+
 ROUTE::group(['middleware'=>['auth']], function(){
     Route::get('/createGamer', 'GamerController@create')->name('createGamer');
     ROUTE::post('/storeGamer', 'GamerController@store')->name('storeGamer');
@@ -28,10 +32,14 @@ ROUTE::group(['middleware'=>['auth']], function(){
     ROUTE::post('/updateGamer/{id}', 'GamerController@update')->name('updateGamer');
     ROUTE::post('/deleteGamer/{id}', 'GamerController@destroy')->name('deleteGamer');
 
-    //Route::get('/showRaces','RaceController@show')->name('showRaces');
-    //Route::get('/createRace', 'RaceController@create')->name('createRace');
-    //ROUTE::post('/storeRace', 'RaceController@store')->name('storeRace');
-    //ROUTE::post('/editRace/{id}', 'RaceController@edit')->name('editRace');
-    //ROUTE::post('/updateRace/{id}', 'RaceController@update')->name('updateRace');
-    //ROUTE::post('/deleteRace/{id}', 'RaceController@destroy')->name('deleteRace');
+    Route::get('/getSingup', 'UserController@create')->name('storeLogin');
+    ROUTE::post('/postSingup', 'UserController@store')->name('postLogin');
+    ROUTE::post('/storeUser/{id}', 'UserController@store')->name('storeUser');
+    ROUTE::post('/updateUser/{id}', 'UserController@update')->name('updateUser');
+    ROUTE::post('/deleteUser/{id}', 'UserController@destroy')->name('deleteUser');
+
+    Route::get('/showGame','GameController@show')->name('showGame');
+   
+    ROUTE::post('/storeGame', 'GameController@store')->name('storeGame');
+    
 });
