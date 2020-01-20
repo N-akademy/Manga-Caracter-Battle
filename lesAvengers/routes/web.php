@@ -39,7 +39,7 @@ ROUTE::group(['middleware'=>['auth']], function(){
     ROUTE::post('/deleteUser/{id}', 'UserController@destroy')->name('deleteUser');
 
     Route::get('/showGame','GameController@show')->name('showGame');
-   
+    Route::get('/createGame', 'GameController@create')->name('createGame');
     ROUTE::post('/storeGame', 'GameController@store')->name('storeGame');
     
 });

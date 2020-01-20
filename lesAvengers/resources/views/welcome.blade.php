@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="{{ route('showGamers') }}">Accueil</a>
-                    <a>Game</a>
+                    <a href>Game</a>
                     @if(Auth::check())
                         @if(Auth::user()->role=='administator')
                             <a href="{{url('/userSystem')}}">Profil</a>

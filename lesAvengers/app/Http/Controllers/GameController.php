@@ -18,6 +18,15 @@ class GameController extends Controller
         return view('game.show', compact('game'));
     }
 
+    public function createGame()
+    {
+        // Permet de stocker tous les teams dans une variable $teams
+        $gamer = Gamer::All();
+
+        // Retourne la vue du formulaire de création en pouvant réutiliser la variable $teams
+        return view('gamers.create', compact('gamers'));
+    }
+
     public function storeGame(Request $request)
     {
         // Ceci est le validator. Il permettra de valider les informations reçues depuis un formulaire avant de traiter les données. Si une erreur survient, on retourne cette erreur sans exécuter le reste.
