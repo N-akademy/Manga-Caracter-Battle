@@ -86,8 +86,12 @@
 
                 <div class="links">
                     <a href="{{ route('showGamers') }}">Accueil</a>
-                    <a href="{{route ('game')}}>Game</a>
-                    <a href="/home">Profil</a>
+                    <a href="{{route ('game')}}">Game</a>
+                    @if(Auth::check())
+                        @if(Auth::user()->role=='administator')
+                            <a href="{{url('/userSystem')}}">Profil</a>
+                        @endif
+                    @endif    
                     
                 </div>
             </div>
