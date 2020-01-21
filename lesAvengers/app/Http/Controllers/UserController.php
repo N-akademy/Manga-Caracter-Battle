@@ -7,6 +7,9 @@ use Illuminate\Routing\Controller;
 
 class UserController extends Controller
 {
+
+
+    //connexion bdd
     public function getSingup(){
         return view('user.singup');
     }
@@ -25,12 +28,20 @@ class UserController extends Controller
         return redirect()->route('product.index');
     }
 
+
+    //personalisation des user
+
     public function show()
     {
         $user=User::All();
-        return view('user.show', compact('users'));
+        return view('home', compact('users'));
     }
-
+    public function createUser()
+    {
+    
+        $gamer = Gamer::All(); 
+        return view('gamers.create', compact('gamers'));
+    } 
   
 
     public function storeUser(Request $request)

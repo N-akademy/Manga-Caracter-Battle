@@ -76,7 +76,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        
+                        <a href="{{url('/home')}}">Profil</a>
+                        <a href="/logout">Deconnexion</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -96,7 +98,7 @@
                     <a href="{{route ('showGamers')}}">Accueil</a>
                     <a href="{{route ('showGame')}}" >Game</a>
                     
-                            <a href="{{url('/userSystem')}}">Profil</a>
+                            
                       
                     
                 </div>

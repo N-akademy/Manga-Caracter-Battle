@@ -94,5 +94,12 @@ class GamerTableSeeder extends Seeder
             'lifePoint'=>'700',
             'power'=>'60',
         ]);
+
+        DB::table('gamers')->insert([
+            'name'=>'Sangohan',
+            'attack'=>'Kaméhaméa',
+            'lifePoint'=>'900',
+            'power'=>'60',
+        ]);
     }
 }

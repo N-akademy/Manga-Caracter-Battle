@@ -7,7 +7,7 @@ use App\Team;
 
 use Illuminate\Http\Request;class GamerController extends Controller
 {
-   
+   // Pour afficher le jeux
     
     public function showGame()
     {
@@ -67,9 +67,9 @@ use Illuminate\Http\Request;class GamerController extends Controller
     } 
     public function createGamer()
     {
-    // Permet de stocker tous les teams dans une variable $teams
-        $gamer = Gamer::All(); // Retourne la vue du formulaire de création en pouvant réutiliser la variable $teams
-        return view('gamers.create', compact('gamers'));
+    
+        $gamer = Gamer::All(); 
+        return view('create', compact('gamers'));
     } 
     public function storeGamer(Request $request)
     {
@@ -79,10 +79,10 @@ use Illuminate\Http\Request;class GamerController extends Controller
             'attack' => 'required|max:50|string',
             'lifePoint' => 'required|integer',
             'power' => 'required|integer|max:3000',
-            'team_id' => 'required|max:50|string'
+            
         ]); 
         if ($validator->fails()) {
-            return redirect('createGamer')
+            return redirect('create')
                 ->withErrors($validator)
                 ->withInput();
         } 
@@ -93,7 +93,7 @@ use Illuminate\Http\Request;class GamerController extends Controller
                 "attack" => $request->attack,
                 "lifePoint" => $request->lifePoint,
                 "power" => $request->power,
-                "team_id" => $request->team_id
+               
             ]); 
             // Hydratation en base de données et donc insertion du film
 
@@ -101,7 +101,7 @@ use Illuminate\Http\Request;class GamerController extends Controller
 
             // Redirection automatique à utiliser à chaque envoi de formulaire
 
-            return redirect('showGamer');
+            return redirect('table');
             }
     }
 
@@ -109,7 +109,7 @@ use Illuminate\Http\Request;class GamerController extends Controller
     {
     // On va chercher le film dans notre table gamers où l'ID == $id
         $gamer = Gamer::find($id); // Les teams sont chargés pour permettre à notre page d'utiliser les teams existants dans un <select>
-        $teams = Team::All(); return view('gamer.edit', compact('gamer', 'teams'));
+        return view('edit', compact('gamer'));
     }
 
     public function updateGamer(Request $request, $id)
@@ -120,7 +120,10 @@ use Illuminate\Http\Request;class GamerController extends Controller
         $gamer->attack = $request->attack;
         $gamer->lifePoint = $request->lifePoint;
         $gamer->power = $request->power;
-        $gamer->team_id = $request->team_id; $gamer->save(); return redirect('showGamer');
+        $gamer->team_id = $request->team_id; 
+        $gamer->save(); 
+        
+        return redirect('showGamers');
     } 
     public function deleteGamer($id)
     {
@@ -128,6 +131,8 @@ use Illuminate\Http\Request;class GamerController extends Controller
         // Méthode d'Eloquent permettant de supprimer notre film.
         $gamer->delete(); 
         // Redirection sur la page de films.
-        return redirect('showGamer');
+        return redirect('showGamers');
     }
+
+
 }

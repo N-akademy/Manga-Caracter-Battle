@@ -15,39 +15,66 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/userSystem', function () {
-    return view('userSystem');
-});
-Route::get('/home', 'HomeController@index')->name('home');
 
+
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user', 'UserController@index');
 
-Route::get('/showGame','GamerController@showGame')->name('showGame');
 
+Route::get('/showGame','GamerController@showGame')->name('showGame');
 Route::get('/showGamers','GamerController@show')->name('showGamers');
 
-Route::get('/showUsers','GamerController@show')->name('showGamers');
+
+ 
 
 ROUTE::group(['middleware'=>['auth']], function(){
-    Route::get('/createGamer', 'GamerController@create')->name('createGamer');
-    ROUTE::post('/storeGamer', 'GamerController@store')->name('storeGamer');
-    ROUTE::post('/editGamer/{id}', 'GamerController@edit')->name('editGamer');
-    ROUTE::post('/updateGamer/{id}', 'GamerController@update')->name('updateGamer');
-    ROUTE::post('/deleteGamer/{id}', 'GamerController@destroy')->name('deleteGamer');
 
-    Route::get('/getSingup', 'UserController@create')->name('getSignup');
-    ROUTE::post('/postSingup', 'UserController@store')->name('postSignup');
+    
+    Route::get('/createOne', 'TeamController@createTeam')->name('createTeam');
+    ROUTE::post('/store', 'TeamController@store')->name('store');
+    ROUTE::post('/edit/{id}', 'TeamController@edit')->name('edit');
+    ROUTE::post('/updateGamer/{id}', 'TeamController@update')->name('update');
+    ROUTE::post('/deleteGamer/{id}', 'TeamController@delete')->name('delete');
+
+
+    Route::get('/createOne', 'GamerController@createGamer')->name('createGamer');
+    ROUTE::post('/store', 'GamerController@storeGamer')->name('storeGamer');
+    ROUTE::post('/edit/{id}', 'GamerController@editGamer')->name('edit');
+    ROUTE::post('/updateGamer/{id}', 'GamerController@updateGamer')->name('updateGamer');
+    ROUTE::post('/deleteGamer/{id}', 'GamerController@deleteGamer')->name('deleteGamer');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Route::get('/showUsers','UserController@show')->name('show');
+    Route::get('/getSingup', 'UserController@getSingup')->name('getSignup');
+    ROUTE::post('/postSingup', 'UserController@postSingup')->name('postSignup');
+
     ROUTE::post('/storeUser/{id}', 'UserController@store')->name('storeUser');
     ROUTE::post('/updateUser/{id}', 'UserController@update')->name('updateUser');
     ROUTE::post('/deleteUser/{id}', 'UserController@destroy')->name('deleteUser');
 
     
-    Route::get('/createGame', 'GameController@create')->name('createGame');
-    ROUTE::post('/storeGame', 'GameController@store')->name('storeGame');
+    Route::get('/createGame', 'GamerController@createGame')->name('createGame');
+    ROUTE::post('/storeGame', 'GamerController@storeGame')->name('storeGame');
     
 });
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+

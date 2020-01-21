@@ -69,5 +69,10 @@ class GamerTeamTableSeeder extends Seeder
             'gamer'=>'12',
             'team'=>'6',
         ]);
+
+        DB::table('gamer_team')->insert([
+            'gamer'=>'13',
+            'team'=>'1',
+        ]);
     }
 }
