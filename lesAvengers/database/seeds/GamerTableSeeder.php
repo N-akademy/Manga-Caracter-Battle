@@ -13,84 +13,84 @@ class GamerTableSeeder extends Seeder
     {
         DB::table('gamers')->insert([
             'name'=>'Sangoku',
-            'attack'=>'kameameha',
+            'attack'=>'Kaméameha',
             'lifePoint'=>'1000',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Vegeta',
-            'attack'=>'garick gun',
+            'attack'=>'Garick Gun',
             'lifePoint'=>'1000',
             'power'=>'60',
         ]);
         
         DB::table('gamers')->insert([
             'name'=>'Luffy',
-            'attack'=>'éléphant gun',
+            'attack'=>'Éléphant Gun',
             'lifePoint'=>'700',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Zoro',
-            'attack'=>'technique à 3 sabre',
+            'attack'=>'Technique à 3 Sabre',
             'lifePoint'=>'650',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Naruto Uzumaki',
-            'attack'=>'razengan',
+            'attack'=>'Razengan',
             'lifePoint'=>'700',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Sasuke Uchiwa',
-            'attack'=>'milles oiseaux',
+            'attack'=>'Milles Oiseaux',
             'lifePoint'=>'700',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Asta',
-            'attack'=>'épéiste expert',
+            'attack'=>'Épéiste Expert',
             'lifePoint'=>'500',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Juno',
-            'attack'=>'magie de vent',
+            'attack'=>'Magie de Vent',
             'lifePoint'=>'500',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Saïtama',
-            'attack'=>'frappe bien venere',
+            'attack'=>'Frappe bien Vénère',
             'lifePoint'=>'650',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Xenos',
-            'attack'=>'machingan buro',
+            'attack'=>'Machingan Buro',
             'lifePoint'=>'450',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Ichigo Kurosaki',
-            'attack'=>'getsuga tensho',
+            'attack'=>'Getsuga Tensho',
             'lifePoint'=>'700',
             'power'=>'60',
         ]);
 
         DB::table('gamers')->insert([
             'name'=>'Yoruichi Shihōin',
-            'attack'=>'zanpakuto',
+            'attack'=>'Zanpakuto',
             'lifePoint'=>'700',
             'power'=>'60',
         ]);

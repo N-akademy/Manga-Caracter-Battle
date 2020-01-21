@@ -4,16 +4,19 @@
 
 
 
-<h3>Combat</h3>
+
+<h3>Combat XXX VS Ordinateur</h3>
 
 
 
-foreach
 
-<p> {{ $gamer->name }} attaque {{ $gamer->name }} avec {{ $gamer->attack}} et une force de {{ $gamer->force }}. Il reste {{ $gamer->lifePoint }} point de vie a {{ $gamer->name }} </p> 
-<p> {{ $gamer->name }} attaque {{ $gamer->name }} avec {{ $gamer->attack}} et une force de {{ $gamer->force }}. Il reste {{ $gamer->lifePoint }} point de vie a {{ $gamer->name }} </p>
+@foreach ($gamer as $gamer)
+    
 
-endforeach
+<p> {{ $gamer->name }} attaque {{ $gamer->name }} avec {{ $gamer->attack}} et une force de {{ $gamer->power }}. Il reste {{ $gamer->lifePoint }} point de vie a {{ $gamer->name }} </p> 
+<p> {{ $gamer->name }} attaque {{ $gamer->name }} avec {{ $gamer->attack}} et une force de {{ $gamer->power }}. Il reste {{ $gamer->lifePoint }} point de vie a {{ $gamer->name }} </p>
+
+@endforeach
 
 
 <p>{{ $gamer->name }} à gagner le combat. </p> 

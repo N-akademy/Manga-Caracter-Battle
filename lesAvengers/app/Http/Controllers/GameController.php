@@ -4,82 +4,62 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Validator;
+use App\Gamer;
+
 class GameController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $gamer = Gamer :: All() ; 
-        return view('game', compact('gamers')) ;
+        $gamer=Gamer::All();
+        return view('game', compact('gamer'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function createGame()
     {
-        //
+        // Permet de stocker tous les teams dans une variable $teams
+        $gamer = Gamer::All();
+
+        // Retourne la vue du formulaire de création en pouvant réutiliser la variable $teams
+        return view('gamers.create', compact('gamers'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function storeGame(Request $request)
     {
-        //
-    }
+        // Ceci est le validator. Il permettra de valider les informations reçues depuis un formulaire avant de traiter les données. Si une erreur survient, on retourne cette erreur sans exécuter le reste.
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:50|string',
+            'attack' => 'required|max:50|string',
+            'lifePoint' => 'required|integer',
+            'power' => 'required|integer|max:3000',
+            'team_id' => 'required|max:50|string'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if ($validator->fails()) {
+            return redirect('welcome')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            // On se crée un objet de type Gamer qui utilisera l'hydratation
+            $gamer = new Gamer([
+                "name" => $request->name,
+                "attack" => $request->attack,
+                "lifePoint" => $request->lifePoint,
+                "power" => $request->power,
+                "team_id" => $request->team_id 
+            ]);
+
+            // Hydratation en base de données et donc insertion du film
+            $gamer->save();
+
+            // Redirection automatique à utiliser à chaque envoi de formulaire
+            return redirect('showGame');
+        }
     }
 }

@@ -12,17 +12,17 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'firstName'=>'Adam',
+            'name'=>'Adam',
             'lastName'=>'Agoune',
             'email'=>'a.agoune@it-students.fr',
-            'password'=>'1234',
+            'password'=>'12345678',
         ]);
 
         DB::table('users')->insert([
-            'firstName'=>'Norhen',
+            'name'=>'Norhen',
             'lastName'=>'Wachani',
             'email'=>'n.wachani@it-students.fr',
-            'password'=>'1234',
+            'password'=>'12345678',
         ]);
     }
 }

@@ -1,4 +1,6 @@
+
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -8,27 +10,43 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/Route::get('/', function () 
-{
+*/
+
+Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/user', 'UserController@index');Route::get('/gamers.show', 'GamerController@index');Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/userSystem', function () {
+    return view('userSystem');
+});
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/user', 'UserController@index');
+
+Route::get('/showGame','GamerController@showGame')->name('showGame');
 
 Route::get('/showGamers','GamerController@show')->name('showGamers');
 
+Route::get('/showUsers','GamerController@show')->name('showGamers');
+
 ROUTE::group(['middleware'=>['auth']], function(){
-
     Route::get('/createGamer', 'GamerController@create')->name('createGamer');
-
     ROUTE::post('/storeGamer', 'GamerController@store')->name('storeGamer');
-
     ROUTE::post('/editGamer/{id}', 'GamerController@edit')->name('editGamer');
-
     ROUTE::post('/updateGamer/{id}', 'GamerController@update')->name('updateGamer');
-    
     ROUTE::post('/deleteGamer/{id}', 'GamerController@destroy')->name('deleteGamer');
 
+    Route::get('/getSingup', 'UserController@create')->name('getSignup');
+    ROUTE::post('/postSingup', 'UserController@store')->name('postSignup');
+    ROUTE::post('/storeUser/{id}', 'UserController@store')->name('storeUser');
+    ROUTE::post('/updateUser/{id}', 'UserController@update')->name('updateUser');
+    ROUTE::post('/deleteUser/{id}', 'UserController@destroy')->name('deleteUser');
+
+    
+    Route::get('/createGame', 'GameController@create')->name('createGame');
+    ROUTE::post('/storeGame', 'GameController@store')->name('storeGame');
+    
 });
+
 
 Auth::routes();
 

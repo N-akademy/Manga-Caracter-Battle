@@ -4,10 +4,10 @@
 
 
 
+<h1 class="titre">Combattant </h1>
 
-<h1>Combattant </h1>
-
-<table>
+<table class="table table-dark">
+    <br>
     <tr>
         <th>Id</th>
         <th>Nom</th>
@@ -27,7 +27,7 @@
             <th class="id">{{ $gamer->id }}</th>
             <td>{{ $gamer->name }}</td>
             <td>{{ $gamer->attack}}</td>
-            <td>{{ $gamer->force }}</td>
+            <td>{{ $gamer->power }}</td>
             <td>{{ $gamer->lifePoint }}</td>
             
             @if(Auth::check())

@@ -86,9 +86,10 @@
 
                 <div class="links">
                     <a href="{{route ('showGamers')}}">Accueil</a>
-                    <a href="{{url ('/')}}">Game</a>
-                    <a href="{{url ('/')}}">Profil</a>
+                    <a href="{{route ('showGame')}}" >Game</a>
                     
+                            <a href="{{url('/userSystem')}}">Profil</a>
+                     
                 </div>
             </div>
         </div>
